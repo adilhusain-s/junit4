@@ -73,4 +73,6 @@ jobs:
           cache: maven
 
       - name: Build and verify
+        env:
+          HOME: ${{ runner.temp }} # Set HOME to the runner's temp directory
         run: ./mvnw verify javadoc:javadoc site:site --batch-mode --errors --settings .github/workflows/settings.xml
